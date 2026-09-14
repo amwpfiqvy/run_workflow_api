@@ -30,7 +30,7 @@ root = Path(sys.argv[1])
 if any(c in str(root) for c in '\"%$\\\n\r'):
     raise SystemExit('Unsupported character in source path')
 if str(root).startswith(('/tmp/', '/var/tmp/')):
-    raise SystemExit('Use a persistent readable path such as /data/sync/scripts/run_workflow_api/ubuntu')
+    raise SystemExit('Use a persistent path outside /tmp and /var/tmp')
 for name in ('oci_workflow_watchdog.py', 'run-workflow-api.service.in',
              'run-workflow-api.timer', 'watchdog.env.example'):
     if not (root / name).is_file():

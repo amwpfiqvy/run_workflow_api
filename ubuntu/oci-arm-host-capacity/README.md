@@ -18,7 +18,7 @@
 
 ```bash
 git clone https://github.com/amwpfiqvy/run_workflow_api.git /root/run_workflow_api
-cd /root/run_workflow_api/ubuntu
+cd /root/run_workflow_api/ubuntu/oci-arm-host-capacity
 sudo bash install-timer.sh
 sudoedit /etc/run-workflow-api/watchdog.env
 sudo chown root:root /etc/run-workflow-api/watchdog.env
