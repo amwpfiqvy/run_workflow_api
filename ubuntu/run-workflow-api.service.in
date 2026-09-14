@@ -1,0 +1,26 @@
+[Unit]
+Description=OCI ARM workflow watchdog via GitHub API
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=@ROOT@
+ExecStart=/usr/bin/python3 "@ROOT@/oci_workflow_watchdog.py"
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUTF8=1
+Environment=WATCHDOG_LOG_DIR=/var/log/run-workflow-api
+EnvironmentFile=/etc/run-workflow-api/watchdog.env
+LogsDirectory=run-workflow-api
+LogsDirectoryMode=0750
+TimeoutStartSec=110
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+StandardOutput=journal
+StandardError=journal

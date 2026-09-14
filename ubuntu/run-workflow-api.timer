@@ -1,0 +1,12 @@
+[Unit]
+Description=Check OCI ARM workflow every two minutes
+
+[Timer]
+OnCalendar=*-*-* *:0/2:00
+Persistent=true
+AccuracySec=1s
+RandomizedDelaySec=0
+Unit=run-workflow-api.service
+
+[Install]
+WantedBy=timers.target

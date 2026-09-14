@@ -1,0 +1,8 @@
+.venv/
+logs/
+__pycache__/
+*.pyc
+token
+*.token
+.env
+watchdog.env
